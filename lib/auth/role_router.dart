@@ -3,9 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../auth/auth_controller.dart';
 import '../models/app_user.dart';
+
+// Screens
 import '../admin/admin_dashboard.dart';
-import '../customer/customer_home.dart';
-import '../rider/rider_home.dart';
+import '../customer/customer_main_layout.dart';
+import '../rider/rider_main_layout.dart'; // ✅ Import the new Rider Layout
 
 class RoleRouter extends ConsumerWidget {
   const RoleRouter({super.key});
@@ -24,9 +26,10 @@ class RoleRouter extends ConsumerWidget {
           case UserRole.admin:
             return const AdminDashboard();
           case UserRole.customer:
-            return const CustomerHome();
+            return const CustomerMainLayout();
           case UserRole.rider:
-            return const RiderHome();
+            // ✅ FIX: Use RiderMainLayout instead of RiderHome
+            return const RiderMainLayout(); 
         }
       },
       loading: () => const Scaffold(
