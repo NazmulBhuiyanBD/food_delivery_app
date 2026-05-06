@@ -23,20 +23,11 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -65,4 +56,32 @@ class DefaultFirebaseOptions {
     projectId: 'food-delivery-e70f4',
     storageBucket: 'food-delivery-e70f4.firebasestorage.app',
   );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyA2o9F5_GnTK3h7zF1HiwXIAAJSM-GlbnE',
+    appId: '1:566410621904:ios:5b0f5c2c699ee3c3b17fd5',
+    messagingSenderId: '566410621904',
+    projectId: 'food-delivery-e70f4',
+    storageBucket: 'food-delivery-e70f4.firebasestorage.app',
+    iosBundleId: 'com.example.foodDeliveryApp',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyA2o9F5_GnTK3h7zF1HiwXIAAJSM-GlbnE',
+    appId: '1:566410621904:ios:5b0f5c2c699ee3c3b17fd5',
+    messagingSenderId: '566410621904',
+    projectId: 'food-delivery-e70f4',
+    storageBucket: 'food-delivery-e70f4.firebasestorage.app',
+    iosBundleId: 'com.example.foodDeliveryApp',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyDuGrJmcPzRhlocjpXRlAYm6oBynJNJ80U',
+    appId: '1:566410621904:web:c8cb365bdc1aa132b17fd5',
+    messagingSenderId: '566410621904',
+    projectId: 'food-delivery-e70f4',
+    authDomain: 'food-delivery-e70f4.firebaseapp.com',
+    storageBucket: 'food-delivery-e70f4.firebasestorage.app',
+  );
+
 }

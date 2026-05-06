@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../models/product_model.dart';
+import 'package:food_delivery_app/models/product_model.dart';
 
 class ProductService {
   final FirebaseFirestore _db;
@@ -13,6 +13,9 @@ class ProductService {
     required double price,
     required String imageUrl,
     required String categoryId,
+    required String restaurantId,
+    bool isActive = true,
+    bool isChefSelection = false,
   }) async {
     await _ref.add({
       'name': name,
@@ -20,6 +23,9 @@ class ProductService {
       'price': price,
       'imageUrl': imageUrl,
       'categoryId': categoryId,
+      'restaurantId': restaurantId,
+      'isActive': isActive,
+      'isChefSelection': isChefSelection,
       'createdAt': FieldValue.serverTimestamp(),
     });
   }
@@ -31,6 +37,9 @@ class ProductService {
     required double price,
     required String imageUrl,
     required String categoryId,
+    required String restaurantId,
+    required bool isActive,
+    required bool isChefSelection,
   }) async {
     await _ref.doc(id).update({
       'name': name,
@@ -38,6 +47,9 @@ class ProductService {
       'price': price,
       'imageUrl': imageUrl,
       'categoryId': categoryId,
+      'restaurantId': restaurantId,
+      'isActive': isActive,
+      'isChefSelection': isChefSelection,
     });
   }
 

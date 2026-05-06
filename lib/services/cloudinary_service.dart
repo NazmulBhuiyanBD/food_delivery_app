@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:food_delivery_app/core/config.dart';
 import 'package:http/http.dart' as http;
 
-import '../cloudinary/cloudinary.dart';
 
 class CloudinaryService {
   static Future<String> uploadImage(File imageFile) async {
@@ -19,7 +19,7 @@ class CloudinaryService {
         ),
       );
 
-    final response = await request.send();
+    final response = await request.send().timeout(const Duration(seconds: 60));
     final responseBody = await response.stream.bytesToString();
 
     if (response.statusCode == 200) {

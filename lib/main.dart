@@ -3,10 +3,13 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'firebase_options.dart';
-import 'auth/auth_wrapper.dart';
-import 'admin/admin_dashboard.dart';
-import 'customer/customer_main_layout.dart';
-import 'rider/rider_main_layout.dart';
+import 'features/auth/views/administration_screen.dart';
+import 'features/admin/views/admin_main_layout.dart';
+import 'features/customer/views/customer_main_layout.dart';
+import 'features/rider/views/rider_main_layout.dart';
+import 'features/auth/views/loading_screen.dart';
+
+import 'core/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,17 +29,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Food Delivery App',
-      theme: ThemeData(
-        primaryColor: const Color(0xFFFF8A00),
-        scaffoldBackgroundColor: Colors.white,
-        useMaterial3: true,
-      ),
-      // 1. App Entry Point (Checks if logged in)
-      home: const AuthWrapper(),
+      theme: AppTheme.lightTheme,
+      // 1. App Entry Point (Loading Screen -> AuthWrapper)
+      home: const LoadingScreen(),
       
       // 2. Named Routes for Navigation
       routes: {
-        '/admin': (_) => const AdminDashboard(),
+        '/admin': (_) => const AdministrationScreen(),
+        '/admin_dashboard': (_) => const AdminMainLayout(),
         '/customer': (_) => const CustomerMainLayout(),
         '/rider': (_) => const RiderMainLayout(),
       },

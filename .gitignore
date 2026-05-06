@@ -46,4 +46,5 @@ app.*.map.json
 
 # Cloudinary config (DO NOT COMMIT)
 lib/cloudinary/cloudinary.dart
+lib/core/config.dart
 

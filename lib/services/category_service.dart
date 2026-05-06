@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../models/category_model.dart';
+import 'package:food_delivery_app/models/category_model.dart';
 
 class CategoryService {
   final FirebaseFirestore _db;
